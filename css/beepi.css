@@ -2,6 +2,7 @@
 html, body {
 	margin: 0;
 	padding: 0;
+	width: 100%;
 	font-family: 'Source Sans Pro', sans-serif;
 }
 
@@ -9,7 +10,15 @@ html, body {
 	box-sizing: border-box;
 }
 
+#beepi-master-container {
+	position: relative;
+	width: 80%;
+	left: 10%;
+}
+
 /* GENERAL STYLES */
+
+/* light blue: #32acff; */
 
 h1 {
 	font-weight: 200;
@@ -33,3 +42,31 @@ sup {
 #header #logo {
 	width: 150px;
 }
+
+
+/* SEARCH BAR */
+
+#search-bar {
+	width: 100%;
+	height: 80px;
+	margin-top: 50px;
+	background: #FBFBFB;
+	border: 2px solid #CCC;
+	border-radius: 5px;
+	color: #32acff;
+	padding-left: 30px;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 24pt;
+	font-weight: 400;
+	outline: none;
+
+	-webkit-transition: border 0.3s linear;
+	-moz-transition: border 0.3s linear;
+	transition: border 0.3s linear;
+}
+
+#search-bar:focus {
+	border: 2px solid #32acff;
+}
+
+
