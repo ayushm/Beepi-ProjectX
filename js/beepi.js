@@ -181,15 +181,30 @@ function initSearchbox() {
 
 function searchByPrice(from, to) {
 
+	var numResults = 0;
+
 	for(var i=0; i<cars.length; i++) {
 
 		if(cars[i].price >= from && cars[i].price <= to) {
+
+			numResults++;
 			$("#car-"+cars[i].id).removeClass("hidden");
+
 		} else {
 			$("#car-"+cars[i].id).addClass("hidden");
 		}
 
 	}
+
+	var resultsHTML = '\
+		<div id="results-summary">\
+			<span id="num-results">' + numResults + '</span>&nbsp;&nbsp;cars found priced between&nbsp;&nbsp;\
+			<span class="query">$' + Number(from).toLocaleString() + '</span>&nbsp;&nbsp;and&nbsp;&nbsp;\
+			<span class="query">$' + Number(to).toLocaleString() + '</span>\
+		</div>\
+	';
+
+	$("#results-summary").html(resultsHTML);
 
 }
 
