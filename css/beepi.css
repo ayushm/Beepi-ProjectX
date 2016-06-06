@@ -217,6 +217,35 @@ sup {
 	color: #FBFBFB;
 }
 
+/* RESPONSIVE */
+
+@media only screen and (max-width: 900px) {
+    #cars-container {
+		margin-top: 30px;
+		margin-left: -1%;
+		width: 102%;
+	}
+
+	.car {
+		width: 48%;
+		margin: 10px 1%;
+	}
+}
+
+@media only screen and (max-width: 550px) {
+    #cars-container {
+		margin-top: 30px;
+		margin-left: 0;
+		width: 100%;
+	}
+
+	.car {
+		width: 100%;
+		margin: 10px 0;
+	}
+}
+
+
 /* MOBILE */
 @media only screen
   and (min-device-width: 320px)
