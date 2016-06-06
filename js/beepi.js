@@ -112,5 +112,11 @@ function initSlider() {
 		}
 	});
 
+	slider.noUiSlider.on("update", function(values) {
+		console.log(values);
+		$("#range-price-left").html("$"+values[0]);
+		$("#range-price-right").html("$"+values[1]);
+	});
+
 }
 

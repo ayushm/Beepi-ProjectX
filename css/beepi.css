@@ -74,14 +74,13 @@ sup {
 
 #range-container {
 	width: 100%;
-	height: 125px;
-	margin-top: 50px;
-	background: #BBB;
+	margin-top: 50px;	
 }
 
 #buckets-container {
 	width: 100%;
-	height: 100%;
+	height: 125px;
+	background: #CCC;
 }
 
 .bucket {
@@ -101,6 +100,19 @@ sup {
 	width: 100%;
 }
 
+#range-prices-container {
+	width: 100%;
+	height: 30px;
+	margin-top: 30px;
+}
+
+#range-price-left {
+	float: left;
+}
+
+#range-price-right {
+	float: right;
+}
 
 /* CAR GRID */
 
@@ -108,6 +120,7 @@ sup {
 	width: 102%;
 	margin-top: 50px;
 	margin-left: -1%;
+	clear: both;
 }
 
 .car {
@@ -142,7 +155,6 @@ sup {
 	-moz-transition: bottom 0.5s ease;
 	transition: bottom 0.5s ease;
 }
-
 
 .car-info .car-name {
 	position: relative;
