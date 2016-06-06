@@ -167,8 +167,9 @@ function initSearchbox() {
 			}
 
 			var resultsHTML = '\
-				<div id="results-summary"><span id="num-results">' + numResults + '</span>&nbsp;&nbsp;results found for&nbsp;&nbsp;\
-				<span class="query">' + $("#search-bar").val() + '</span></div>\
+				<span id="num-results">' + numResults + '</span>&nbsp;&nbsp;results found for&nbsp;&nbsp;\
+				<span class="query">' + $("#search-bar").val() + '</span>\
+				<button id="view-all" onclick="viewAllCars()">View All Cars</button>\
 			';
 
 			$("#results-summary").html(resultsHTML);
@@ -201,14 +202,30 @@ function searchByPrice(from, to) {
 	}
 
 	var resultsHTML = '\
-		<div id="results-summary">\
 			<span id="num-results">' + numResults + '</span>&nbsp;&nbsp;cars found priced between&nbsp;&nbsp;\
 			<span class="query">$' + Number(from).toLocaleString() + '</span>&nbsp;&nbsp;and&nbsp;&nbsp;\
 			<span class="query">$' + Number(to).toLocaleString() + '</span>\
-		</div>\
+			<button id="view-all" onclick="viewAllCars()">View All Cars</button>\
 	';
 
 	$("#results-summary").html(resultsHTML);
 
 }
+
+function viewAllCars() {
+
+	$("#results-summary").html("");
+
+	$("#search-bar").val("");
+
+	$("#range-selector")[0].noUiSlider.set([minPrice, maxPrice]);
+
+	for(var i=0; i<cars.length; i++) {
+		$("#car-"+cars[i].id).removeClass("hidden");
+	}
+}
+
+
+
+
 

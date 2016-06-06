@@ -128,9 +128,11 @@ sup {
 
 /* RESULTS SUMMARY */
 
+
 #results-summary {
 	position: relative;
 	width: 100%;
+	display: inline-block;
 	margin-top: 50px;
 	font-size: 130%;
 	font-weight: 300;
@@ -148,6 +150,28 @@ sup {
 	color: #32acff;
 }
 
+#view-all {
+	position: relative;
+	display: inline-block;
+	float: right;
+	padding: 10px;
+	margin-top: 5px;
+	border: 2px solid #32acff;
+	border-radius: 5px;
+	color: #32acff;
+	background: #fff;
+	font-family: 'Source Sans Pro';
+	outline: none;
+	cursor: pointer;
+
+	-webkit-transition: opacity 0.5s ease;
+	-moz-transition: opacity 0.5s ease;
+	transition: opacity 0.5s ease;
+}
+
+#view-all:hover {
+	opacity: 0.6;
+}
 
 /* CAR GRID */
 
