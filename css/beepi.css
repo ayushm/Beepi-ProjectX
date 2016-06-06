@@ -125,11 +125,35 @@ sup {
 	float: right;
 }
 
+
+/* RESULTS SUMMARY */
+
+#results-summary {
+	position: relative;
+	width: 100%;
+	margin-top: 50px;
+	font-size: 130%;
+	font-weight: 300;
+}
+
+#results-summary #num-results {
+	font-size: 160%;
+	color: #32acff;
+}
+
+#results-summary .query {
+	font-style: italic;
+	border-bottom: 2px solid #32acff;
+	font-size: 160%;
+	color: #32acff;
+}
+
+
 /* CAR GRID */
 
 #cars-container {
 	width: 102%;
-	margin-top: 50px;
+	margin-top: 30px;
 	margin-left: -1%;
 	clear: both;
 }

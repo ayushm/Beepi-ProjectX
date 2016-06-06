@@ -21,6 +21,8 @@ $(document).ready(function() {
 
 		initSlider();
 
+		initSearchbox();
+
  	});
 
 });
@@ -121,6 +123,57 @@ function initSlider() {
 	slider.noUiSlider.on("change", function(values) {
 		console.log("Searching for cars priced between $" + Number(values[0]).toLocaleString() + " and $" + Number(values[1]).toLocaleString());
 		searchByPrice(Number(values[0]), Number(values[1]));
+	});
+
+}
+
+function initSearchbox() {
+
+	$("#search-bar").on("keydown", function(e) {
+		if(e.keyCode === 13 && $("#search-bar").val() !== "") {
+			//console.log($("#search-bar").val());
+			var resultsMinPrice,
+				resultsMaxPrice,
+				numResults = 0,
+				searchTerms = $("#search-bar").val().toLowerCase().split(" ");
+
+			for(var i=0; i<cars.length; i++) {
+
+				for(var j=0; j<searchTerms.length; j++) {
+					var term = searchTerms[j];
+					if(cars[i].name.toLowerCase().indexOf(term) > -1 ||
+						cars[i].bodyType.toLowerCase().indexOf(term) > -1 ||
+						cars[i].year === term) { // match!
+
+						numResults++;
+
+						$("#car-"+cars[i].id).removeClass("hidden");
+
+						if(resultsMinPrice == null || resultsMaxPrice == null)
+							resultsMinPrice = resultsMaxPrice = cars[i].price;
+						else if(cars[i].price < resultsMinPrice)
+							resultsMinPrice = cars[i].price;
+						else if(cars[i].price > resultsMaxPrice)
+							resultsMaxPrice = cars[i].price;
+
+						j = searchTerms.length; // skips to end of inner loop
+					}
+
+					if(j == searchTerms.length - 1) // if reached end of inner loop naturally (not a match)
+						$("#car-"+cars[i].id).addClass("hidden");
+
+				}
+
+			}
+
+			var resultsHTML = '\
+				<div id="results-summary"><span id="num-results">' + numResults + '</span>&nbsp;&nbsp;results found for&nbsp;&nbsp;\
+				<span class="query">' + $("#search-bar").val() + '</span></div>\
+			';
+
+			$("#results-summary").html(resultsHTML);
+
+		}
 	});
 
 }
