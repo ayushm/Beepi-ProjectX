@@ -34,7 +34,7 @@ function initCars() {
 
 		// render car on the grid
 		var carHTML = '\
-			<div class="car" style="background: url(\'' + car.image + '\'); background-size: cover;">\
+			<div class="car" id="car-' + car.id + '" style="background: url(\'' + car.image + '\'); background-size: cover;">\
 				<div class="car-info">\
 					<div class="car-name">' + car.name + '</div>\
 					<div class="car-price">$' + car.price + '</div>\
@@ -120,7 +120,23 @@ function initSlider() {
 
 	slider.noUiSlider.on("change", function(values) {
 		console.log("Searching for cars priced between $" + Number(values[0]).toLocaleString() + " and $" + Number(values[1]).toLocaleString());
+		searchByPrice(Number(values[0]), Number(values[1]));
 	});
+
+}
+
+
+function searchByPrice(from, to) {
+
+	for(var i=0; i<cars.length; i++) {
+
+		if(cars[i].price >= from && cars[i].price <= to) {
+			$("#car-"+cars[i].id).removeClass("hidden");
+		} else {
+			$("#car-"+cars[i].id).addClass("hidden");
+		}
+
+	}
 
 }
 

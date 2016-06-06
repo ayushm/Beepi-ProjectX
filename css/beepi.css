@@ -30,6 +30,14 @@ sup {
 	font-size: 60%;
 }
 
+.hidden {
+	width: 0px !important;
+	height: 0px !important;
+	margin: 0px !important;
+	opacity: 0;
+	-webkit-transform: translateY(-50%);
+}
+
 
 /* HEADER */
 
@@ -133,6 +141,9 @@ sup {
 	width: 31.33%;
 	margin: 10px 1%;
 	overflow: hidden;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	transition: all 0.5s ease;
 }
 
 .car:after {
