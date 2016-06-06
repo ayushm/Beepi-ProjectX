@@ -135,7 +135,7 @@ function initSearchbox() {
 			var resultsMinPrice,
 				resultsMaxPrice,
 				numResults = 0,
-				searchTerms = $("#search-bar").val().toLowerCase().split(" ");
+				searchTerms = $("#search-bar").val().trim().toLowerCase().split(" ");
 
 			for(var i=0; i<cars.length; i++) {
 
