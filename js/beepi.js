@@ -96,6 +96,8 @@ function createBuckets() {
 
 		bucketsContainer.innerHTML += bucketHTML;
 	}
+
+	$("#buckets-background").addClass("show-bars");
 }
 
 
