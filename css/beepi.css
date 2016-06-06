@@ -86,14 +86,13 @@ sup {
 
 /* CAR GRID */
 
-#results-container {
+#cars-container {
 	width: 102%;
 	margin-top: 50px;
 	margin-left: -1%;
 }
 
 .car {
-	background: url("//static.beepi.com/images/CarPhotos/16625/Listing/0.jpg");
 	background-size: cover;
 	position: relative;
 	float: left;
