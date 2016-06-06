@@ -118,5 +118,9 @@ function initSlider() {
 		$("#range-price-right").html("$"+Number(values[1]).toLocaleString());
 	});
 
+	slider.noUiSlider.on("change", function(values) {
+		console.log("Searching for cars priced between $" + Number(values[0]).toLocaleString() + " and $" + Number(values[1]).toLocaleString());
+	});
+
 }
 
