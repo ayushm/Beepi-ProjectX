@@ -173,6 +173,10 @@ function initSearchbox() {
 
 			$("#results-summary").html(resultsHTML);
 
+			var slider = $("#range-selector")[0];
+
+			slider.noUiSlider.set([resultsMinPrice, resultsMaxPrice]);
+
 		}
 	});
 
