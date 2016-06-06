@@ -1,6 +1,7 @@
 
 var cars,
 	numBuckets = 50, // this value can be changed
+	bucketSize,
 	prices = [],
 	minPrice,
 	maxPrice;
@@ -17,6 +18,8 @@ $(document).ready(function() {
 		initCars();
 
 		createBuckets();
+
+		initSlider();
 
  	});
 
@@ -63,7 +66,7 @@ function createBuckets() {
 	buckets.length = numBuckets;
 	buckets.fill(0);
 
-	var bucketSize = Math.ceil((maxPrice-minPrice)/numBuckets)+1; // ensures that max value falls in a bucket
+	bucketSize = Math.ceil((maxPrice-minPrice)/numBuckets)+1; // ensures that max value falls in a bucket
 
 	var tallestBucket = -1; 
 
@@ -94,5 +97,20 @@ function createBuckets() {
 }
 
 
+function initSlider() {
 
+	var slider = $("#range-selector")[0];
+
+	noUiSlider.create(slider, {
+		start: [minPrice, maxPrice],
+		connect: true,
+		margin: bucketSize,
+		step: 1,
+		range: {
+			'min': minPrice,
+			'max': maxPrice
+		}
+	});
+
+}
 
