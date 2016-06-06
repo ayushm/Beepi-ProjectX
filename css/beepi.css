@@ -30,6 +30,26 @@ sup {
 	font-size: 60%;
 }
 
+button {
+	padding: 10px;
+	margin-top: 5px;
+	border: 2px solid #32acff;
+	border-radius: 5px;
+	color: #32acff;
+	background: #fff;
+	font-family: 'Source Sans Pro';
+	outline: none;
+	cursor: pointer;
+
+	-webkit-transition: opacity 0.5s ease;
+	-moz-transition: opacity 0.5s ease;
+	transition: opacity 0.5s ease;
+}
+
+button:hover {
+	opacity: 0.6;
+}
+
 .hidden {
 	width: 0px !important;
 	height: 0px !important;
@@ -181,23 +201,10 @@ sup {
 	position: relative;
 	display: inline-block;
 	float: right;
-	padding: 10px;
-	margin-top: 5px;
-	border: 2px solid #32acff;
-	border-radius: 5px;
-	color: #32acff;
-	background: #fff;
-	font-family: 'Source Sans Pro';
-	outline: none;
-	cursor: pointer;
-
-	-webkit-transition: opacity 0.5s ease;
-	-moz-transition: opacity 0.5s ease;
-	transition: opacity 0.5s ease;
 }
 
-#view-all:hover {
-	opacity: 0.6;
+#view-liked {
+	float: right;
 }
 
 /* CAR GRID */
@@ -210,8 +217,7 @@ sup {
 }
 
 .car {
-	//background: url("../assets/images/image_placeholder.jpg");
-	background: url("//static.beepi.com/images/CarPhotos/16625/Listing/0.jpg");
+	background: url("../assets/images/image_placeholder.jpg");
 	background-size: cover;
 	position: relative;
 	float: left;

@@ -4,7 +4,8 @@ var cars,
 	bucketSize,
 	prices = [],
 	minPrice,
-	maxPrice;
+	maxPrice,
+	liked = [];
 
 
 
@@ -15,13 +16,28 @@ $(document).ready(function() {
 		// console.log(response);
 		cars = response;
 
+		console.log('1');
+
+		var likedString = localStorage.getItem('beepiLikedCars');
+		liked = JSON.parse(likedString);
+
+		console.log('2');
+
 		initCars();
+
+		console.log('3');
 
 		createBuckets();
 
+		console.log('4');
+
 		initSlider();
 
-		initSearchbox();
+		console.log('5');
+
+		initSearchbox();		
+
+		console.log('6');		
 
  	});
 
@@ -34,9 +50,16 @@ function initCars() {
 
 	cars.forEach(function(car) {
 
+		var likedAttr = (liked.indexOf(car.id) > -1) ? "true" : "false";
+		var likeSrc = (liked.indexOf(car.id) > -1) ? "assets/images/full_heart.png" : "assets/images/empty_heart_white.png";
+
 		// render car on the grid
 		var carHTML = '\
 			<div class="car" id="car-' + car.id + '" style="background: url(\'' + car.image + '\'); background-size: cover;">\
+				<div class="like-container">\
+					<img class="like-button" onclick="likeHandler(this)" carid="' + car.id + '"\
+					liked="' + likedAttr + '" src="' + likeSrc + '"/>\
+				</div>\
 				<div class="car-info">\
 					<div class="car-name">' + car.name + '</div>\
 					<div class="car-price">$' + car.price + '</div>\
@@ -230,7 +253,7 @@ function searchByPrice(from, to) {
 
 function viewAllCars() {
 
-	$("#results-summary").html("");
+	$("#results-summary").html('<button id="view-liked" onclick="viewLiked()">View Liked Cars</button>');
 
 	$("#search-bar").val("");
 
@@ -241,7 +264,48 @@ function viewAllCars() {
 	}
 }
 
+function viewLiked() {
+	$(".car").addClass("hidden");
+
+	for(var i=0; i<liked.length; i++) {
+		$("#car-"+liked[i]).removeClass("hidden");
+	}
+
+	var resultsHTML = '\
+		<span id="num-results">' + liked.length + '</span>&nbsp;&nbsp\
+		<span class="query">liked cars</span>\
+		<button id="view-all" onclick="viewAllCars()">View All Cars</button>\
+	';
+
+	$("#results-summary").html(resultsHTML);
+
+}
 
 
+function likeHandler(e) {
+
+	var carId = Number($(e).attr("carid"));
+
+	if($(e).attr("liked") === "true") {
+		$(e).attr("src", "assets/images/empty_heart_white.png");
+		$(e).attr("liked", "false");
+
+		var index = liked.indexOf(carId);
+		if(index > -1) {
+			liked.splice(index, 1);
+			localStorage.setItem('beepiLikedCars', JSON.stringify(liked));
+		}
+
+	} else {
+		$(e).attr("src", "assets/images/full_heart.png");
+		$(e).attr("liked", "true");
+
+		if(liked.indexOf(carId) === -1) {
+			liked.push(carId);
+			localStorage.setItem('beepiLikedCars', JSON.stringify(liked));
+		}		
+	}
+
+}
 
 
