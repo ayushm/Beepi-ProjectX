@@ -337,6 +337,11 @@ sup {
   		text-align: center;
   		font-size: 90%;
   	}
+
+  	#view-all {
+  		margin-top: 15px;
+  		margin-right: 10px;
+  	}
 }
 
 
