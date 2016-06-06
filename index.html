@@ -17,7 +17,70 @@
 
 		
 		<input id="search-bar" type="text" placeholder="Filter by make"/>
+
+		<div id="range-container">
+			<div id="buckets"></div>
+			<input id="range-selector" type="range"/>
+		</div>
 		
+		<div id="results-container">
+
+			<div class="car">
+				<div class="car-info">
+					<div class="car-name">2015 Honda Fit</div>
+					<div class="car-price">$48,599</div>
+					<div class="car-more-info">
+						18,500 Miles  -  Sedan
+					</div>
+				</div>
+			</div>
+
+			<style>
+
+			.car-info {
+				position: absolute;
+				width: 100%;
+				bottom: -30px;
+				/*background: rgba(0,0,0,0.7);*/
+				background: linear-gradient(0deg, rgba(0,0,0,0.95), rgba(0,0,0,0));
+				color: #fff;
+				padding: 10px;
+			}
+
+			.car-info .car-name {
+				position: relative;
+				float: left;
+				font-weight: 400;
+				font-size: 110%;
+			}
+
+			.car-info .car-price {
+				position: relative;
+				float: right;
+				font-weight: 300;
+				font-size: 110%;
+			}
+
+			.car-info .car-more-info {
+				clear: both;
+				margin-top: 30px;
+				font-weight: 200;
+				color: #FBFBFB;
+			}
+
+			</style>
+
+			<div class="car"></div>
+			<div class="car"></div>
+			<div class="car"></div>
+			<div class="car"></div>
+			<div class="car"></div>
+			<div class="car"></div>
+			<div class="car"></div>
+			<div class="car"></div>
+			<div class="car"></div>
+
+		</div>
 		
 
 	</div> <!-- end master container -->

@@ -70,3 +70,90 @@ sup {
 }
 
 
+/* RANGE SELECTOR */
+
+#range-container {
+	width: 100%;
+	height: 125px;
+	margin-top: 50px;
+	background: #BBB;
+}
+
+#range-selector {
+	width: 100%;
+}
+
+
+/* CAR GRID */
+
+#results-container {
+	width: 102%;
+	margin-top: 50px;
+	margin-left: -1%;
+}
+
+.car {
+	background: url("//static.beepi.com/images/CarPhotos/16625/Listing/0.jpg");
+	background-size: cover;
+	position: relative;
+	float: left;
+	width: 31.33%;
+	margin: 10px 1%;
+	overflow: hidden;
+}
+
+.car:after {
+	padding-top: 66.66%;
+	display: block;
+	content: '';
+}
+
+.car:hover > .car-info {
+	bottom: 0;
+}
+
+.car-info {
+	position: absolute;
+	width: 100%;
+	bottom: -30px;
+	/*background: rgba(0,0,0,0.7);*/
+	background: linear-gradient(0deg, rgba(0,0,0,0.95), rgba(0,0,0,0));
+	color: #fff;
+	padding: 10px;
+
+	-webkit-transition: bottom 0.5s ease;
+	-moz-transition: bottom 0.5s ease;
+	transition: bottom 0.5s ease;
+}
+
+
+.car-info .car-name {
+	position: relative;
+	float: left;
+	font-weight: 400;
+	font-size: 110%;
+}
+
+.car-info .car-price {
+	position: relative;
+	float: right;
+	font-weight: 300;
+	font-size: 110%;
+}
+
+.car-info .car-more-info {
+	clear: both;
+	margin-top: 30px;
+	font-weight: 200;
+	color: #FBFBFB;
+}
+
+
+
+
+
+
+
+
+
+
