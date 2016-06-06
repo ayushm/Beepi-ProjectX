@@ -97,7 +97,7 @@ function createBuckets() {
 		bucketsContainer.innerHTML += bucketHTML;
 	}
 
-	$("#buckets-background").addClass("show-bars");
+	$(".buckets-background").addClass("show-bars");
 }
 
 
@@ -118,8 +118,18 @@ function initSlider() {
 
 	slider.noUiSlider.on("update", function(values) {
 		//console.log(Number(values[0]).toLocaleString());
-		$("#range-price-left").html("$"+Number(values[0]).toLocaleString());
-		$("#range-price-right").html("$"+Number(values[1]).toLocaleString());
+		var left = Number(values[0]),
+			right = Number(values[1]);
+		$("#range-price-left").html("$"+left.toLocaleString());
+		$("#range-price-right").html("$"+right.toLocaleString());
+
+		var maxWidthPercentage = (right-left)*100/(maxPrice-minPrice),
+			marginLeftPercentage = (left-minPrice)*100/(maxPrice-minPrice);
+
+		$("#buckets-background-active").css({
+			"width": maxWidthPercentage+"%",
+			"left": marginLeftPercentage+"%"
+		});
 	});
 
 	slider.noUiSlider.on("change", function(values) {

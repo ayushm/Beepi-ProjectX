@@ -92,7 +92,7 @@ sup {
 	overflow: hidden;
 }
 
-#buckets-background {
+.buckets-background {
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -104,8 +104,12 @@ sup {
 	transition: top 2s ease;
 }
 
-#buckets-background.show-bars {
+.buckets-background.show-bars {
 	top: 0;
+}
+
+.buckets-background.active {
+	background: #32acff;
 }
 
 #buckets-container {
