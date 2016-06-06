@@ -91,6 +91,12 @@ sup {
 	background: #fff;
 }
 
+.bucket:last-child {
+	float: none;
+	overflow: hidden;
+	width: auto !important;
+}
+
 #range-selector {
 	width: 100%;
 }
