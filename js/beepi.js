@@ -70,7 +70,8 @@ function createBuckets() {
 
 	bucketSize = Math.ceil((maxPrice-minPrice)/numBuckets)+1; // ensures that max value falls in a bucket
 
-	var tallestBucket = -1; 
+	var tallestBucket = -1;  // tallest buckets is set to full height of buckets-container
+								// all others are proportional to tallest bucket
 
 	for(var i=0; i<prices.length; i++) {
 		var index = Math.floor((prices[i]-minPrice)/bucketSize);

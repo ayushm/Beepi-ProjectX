@@ -210,7 +210,8 @@ sup {
 }
 
 .car {
-	background: url("assets/images/image_placeholder.jpg");
+	//background: url("../assets/images/image_placeholder.jpg");
+	background: url("//static.beepi.com/images/CarPhotos/16625/Listing/0.jpg");
 	background-size: cover;
 	position: relative;
 	float: left;
@@ -230,6 +231,10 @@ sup {
 
 .car:hover > .car-info {
 	bottom: 0;
+}
+
+.car:hover > .like-container {
+	margin-left: 0;
 }
 
 .car-info {
@@ -266,6 +271,46 @@ sup {
 	margin-top: 30px;
 	font-weight: 200;
 	color: #FBFBFB;
+}
+
+.car .like-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-left: 20%;
+
+    -webkit-transition: margin 0.5s ease;
+    -moz-transition: margin 0.5s ease;
+    transition: margin 0.5s ease;
+}
+
+.car .like-container::before,
+.car .like-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-color: transparent;
+    border-style: solid;
+}
+
+.car .like-container::before {
+    border-width: 1.8em;
+}
+
+.car .like-container::after {
+    border-width: 1.8em;
+    border-right-color: rgba(0,0,0,0.3);
+    border-top-color: rgba(0,0,0,0.3);
+}
+
+.like-button {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	z-index: 1;
+	width: 25px;
+	cursor: pointer;
 }
 
 /* RESPONSIVE */
@@ -340,13 +385,17 @@ sup {
 		bottom: 0;
 	}
 
+	.car .like-container {
+		margin-left: 0;
+	}
+
 	#range-container {
 		width: 80%;
 		margin-left: 10%;
 		margin-top: 30px;
 	}
   	
-  	#buckets-container {
+  	#buckets-master-container, #buckets-container, .buckets-background {
   		height: 75px;
   	}
 
