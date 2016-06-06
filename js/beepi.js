@@ -1,5 +1,11 @@
 
-var cars;
+var cars,
+	numBuckets = 50, // this value can be changed
+	prices = [],
+	minPrice,
+	maxPrice;
+
+
 
 $(document).ready(function() {
 	//console.log("document ready");
@@ -8,19 +14,22 @@ $(document).ready(function() {
 		// console.log(response);
 		cars = response;
 
-		renderCars();
+		initCars();
+
+		createBuckets();
 
  	});
 
 });
 
 
-function renderCars() {
+function initCars() {
 
 	var carsContainer = $("#cars-container")[0];
 
 	cars.forEach(function(car) {
 
+		// render car on the grid
 		var carHTML = '\
 			<div class="car" style="background: url(\'' + car.image + '\'); background-size: cover;">\
 				<div class="car-info">\
@@ -31,6 +40,59 @@ function renderCars() {
 			</div>';
 
 		carsContainer.innerHTML += carHTML;
+		
+		// populate prices array 		
+		prices.push(car.price);
+
+		// set min and max price
+		if(minPrice == null || maxPrice == null) {
+			minPrice = maxPrice = car.price;
+		} else if(car.price < minPrice) {
+			minPrice = car.price;
+		} else if(car.price > maxPrice) {
+			maxPrice = car.price;
+		}
 	});
 
 }
+
+
+function createBuckets() {
+
+	var buckets = [];
+	buckets.length = numBuckets;
+	buckets.fill(0);
+
+	var bucketSize = Math.ceil((maxPrice-minPrice)/numBuckets)+1; // ensures that max value falls in a bucket
+
+	var tallestBucket = -1; 
+
+	for(var i=0; i<prices.length; i++) {
+		var index = Math.floor((prices[i]-minPrice)/bucketSize);
+		buckets[index]++;
+
+		if(buckets[index] > tallestBucket)
+			tallestBucket = buckets[index];
+	}
+
+	var bucketsContainer = $("#buckets-container")[0];
+
+	for(var i=0; i<buckets.length; i++) {
+
+		var invertedBucketHeightPercentage = 100-(buckets[i]*100/tallestBucket);
+
+		//ensures that tallest bucket has some height to get rendered
+		var heightPercentage = (invertedBucketHeightPercentage > 0) ? invertedBucketHeightPercentage : 1;
+		//console.log(heightPercentage);
+
+		var bucketHTML = '\
+			<div class="bucket" style="height: ' + heightPercentage + '%; width: ' + 100/numBuckets + '%;"></div>\
+		';
+
+		bucketsContainer.innerHTML += bucketHTML;
+	}
+}
+
+
+
+

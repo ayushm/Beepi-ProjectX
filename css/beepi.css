@@ -79,6 +79,18 @@ sup {
 	background: #BBB;
 }
 
+#buckets-container {
+	width: 100%;
+	height: 100%;
+}
+
+.bucket {
+	position: relative;
+	float: left;
+	bottom: 0;
+	background: #fff;
+}
+
 #range-selector {
 	width: 100%;
 }
