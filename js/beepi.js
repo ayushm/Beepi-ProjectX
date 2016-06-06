@@ -188,7 +188,10 @@ function initSearchbox() {
 
 			var slider = $("#range-selector")[0];
 
-			slider.noUiSlider.set([resultsMinPrice, resultsMaxPrice]);
+			if(numResults > 0)
+				slider.noUiSlider.set([resultsMinPrice, resultsMaxPrice]);
+			else
+				slider.noUiSlider.set([minPrice, maxPrice]);
 
 		}
 	});
