@@ -113,9 +113,9 @@ function initSlider() {
 	});
 
 	slider.noUiSlider.on("update", function(values) {
-		console.log(values);
-		$("#range-price-left").html("$"+values[0]);
-		$("#range-price-right").html("$"+values[1]);
+		//console.log(Number(values[0]).toLocaleString());
+		$("#range-price-left").html("$"+Number(values[0]).toLocaleString());
+		$("#range-price-right").html("$"+Number(values[1]).toLocaleString());
 	});
 
 }

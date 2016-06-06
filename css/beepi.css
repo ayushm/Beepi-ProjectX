@@ -104,6 +104,9 @@ sup {
 	width: 100%;
 	height: 30px;
 	margin-top: 30px;
+	font-size: 130%;
+	font-weight: 300;
+	color: #666;
 }
 
 #range-price-left {
