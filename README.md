@@ -1,5 +1,7 @@
 # Beepi - Car Search and Price Range Selector
 
+View live version at http://ayushmehra.com/beepi/ and the likes version (not yet optimized, slow initial page load) at http://ayushmehra.com/beepi/likes/
+
 Renders list of cars from json (js/cars.json in this example) and creates a search bar and price range selector with graph of price buckets as shown below.
 
 ![alt text](http://i.imgur.com/fIkNa5N.png "Sample Screenshot")
