@@ -19,7 +19,8 @@ $(document).ready(function() {
 		console.log('1');
 
 		var likedString = localStorage.getItem('beepiLikedCars');
-		liked = JSON.parse(likedString);
+		if(likedString != null)
+			liked = JSON.parse(likedString);
 
 		console.log('2');
 
