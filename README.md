@@ -29,7 +29,7 @@ Liked cars are stored in local storage and therefore persist for revisits on the
 ### TODOs
 
 * Improve search and provide search suggestions/autofill
-* Improve design, not very efficient on space right now
+* Improve design, not very efficient on screen real estate right now
 * Improve performance (especially on likes version)
 * Add social sharing buttons
 * Further mobile/responsiveness optimization
