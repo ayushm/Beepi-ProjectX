@@ -154,10 +154,16 @@ function initSearchbox() {
 
 				for(var j=0; j<searchTerms.length; j++) {
 					var term = searchTerms[j];
-					if(cars[i].name.toLowerCase().indexOf(term) > -1 ||
+					if(!(cars[i].name.toLowerCase().indexOf(term) > -1 ||
 						cars[i].bodyType.toLowerCase().indexOf(term) > -1 ||
-						cars[i].year === term) { // match!
+						cars[i].year === term)) { // not a match
 
+						$("#car-"+cars[i].id).addClass("hidden");
+
+						j = searchTerms.length;
+					}
+
+					if(j == searchTerms.length - 1) { // if reached end of inner loop naturally (match)
 						numResults++;
 
 						$("#car-"+cars[i].id).removeClass("hidden");
@@ -168,12 +174,7 @@ function initSearchbox() {
 							resultsMinPrice = cars[i].price;
 						else if(cars[i].price > resultsMaxPrice)
 							resultsMaxPrice = cars[i].price;
-
-						j = searchTerms.length; // skips to end of inner loop
 					}
-
-					if(j == searchTerms.length - 1) // if reached end of inner loop naturally (not a match)
-						$("#car-"+cars[i].id).addClass("hidden");
 
 				}
 
