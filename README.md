@@ -6,14 +6,14 @@ Renders list of cars from json (js/cars.json in this example) and creates a sear
 
 ![alt text](http://i.imgur.com/fIkNa5N.png "Sample Screenshot")
 
-To run locally, clone or download the repo, and run it on an http server (otherwise car image won't load). For users with python installed you can start a simple local http server by navigating to the repo in terminal and then using the command:
+To run locally, clone or download the repo, and run it on an http server (otherwise car images won't load). For users with python installed you can start a simple local http server by navigating to the repo in terminal and then using the command:
 > python -m SimpleHTTPServer 8000
 
 The site will then be available at http://localhost:8000
 
 ### Search
 Supports multiple search terms separated by spaces and searches for all matching cars in the list against name, year, and body type.
-> Nissan 2015 SUV
+> Nissan 2014 SUV
 
 ### Price Range
 Draggable price range selector with the active range highlighted in blue on the price-bucket graph (animates). The number of buckets in the graph can be changed at the top of js/beepi.js.
